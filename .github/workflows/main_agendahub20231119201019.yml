@@ -54,4 +54,4 @@ jobs:
           app-name: 'AGENDAHUB20231119201019'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_907F9EADBD084B0EB87952A56F00ADB3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACC61B45DD644BCEA9641F7A4AFD9E1B }}
