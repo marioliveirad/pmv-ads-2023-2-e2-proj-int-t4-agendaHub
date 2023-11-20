@@ -1,0 +1,84 @@
+﻿@* @model AGENDAHUB.Models.ConfiguracaoUsuarioViewModel
+
+<link rel="stylesheet" href="~/css/Configuracao.css" asp-append-version="true" />
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+@{
+    ViewData["Title"] = "Configurações";
+}
+
+<h1 class="text-center">Configurações</h1>
+
+<div class="row d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-7 order-md-2">
+            <div id="sectionContainer">
+                <!-- Conteúdo específico da seção -->
+            </div>
+        </div>
+
+        <div class="col-md-5 order-md-1">
+            <div class="container">
+                <a asp-controller="Profissionais" asp-action="Index" class="btn btn-outline-info">Cadastrar Usuario</a>
+                <ul class="contentMenu">
+                    <li>
+                        <a class="nav_link form-Partial" asp-area="" asp-controller="Configuracao" asp-action="Edit" asp-route-section="InformacoesCadastrais">
+                            Informações Cadastrais
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav_link form-Partial" asp-area="" asp-controller="Configuracao" asp-action="EditInformacoesEmpresariais" asp-route-section="InformacoesEmpresariais">
+                            Informações Empresariais
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav_link form-Partial" asp-area="" asp-controller="Configuracao" asp-action="Edit" asp-route-section="InformacoesBancarias">
+                            Informações Bancarias
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav_link form-Partial" asp-area="" asp-controller="Configuracao" asp-action="Edit" asp-route-section="InformacoesAtendimento">
+                            Informações de Atendimento
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.form-Partial').click(function (e) {
+            e.preventDefault();
+
+            // Obtém a URL da ação do link
+            var url = $(this).attr('href');
+
+            // Faz uma requisição AJAX para obter a PartialView
+            $.get(url, function (data) {
+                // Atualiza o conteúdo do contêiner com a PartialView
+                $('#sectionContainer').html(data);
+
+                // Adiciona o seguinte código para redirecionar após carregar a PartialView
+                history.pushState(null, '', url);
+            });
+        });
+
+        // Manipula o evento de popstate para restaurar o estado ao navegar de volta
+        window.addEventListener('popstate', function (event) {
+            if (event.state) {
+                // Carrega a PartialView ao navegar para frente ou para trás no histórico
+                $.get(event.state.url, function (data) {
+                    $('#sectionContainer').html(data);
+                });
+            }
+        });
+    });
+</script>
+
+
+
+ *@

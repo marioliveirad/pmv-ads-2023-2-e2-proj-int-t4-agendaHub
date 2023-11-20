@@ -1,12 +1,19 @@
-# AGENDA HUB
 
-`CURSO` Análise e Desenvolvimento de Sistemas
+<div align="center">
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/AGENDAHUB/assets/125372940/b17ffe49-be13-454b-ba12-b61c12240598" width="300" height="300">
+</div>
+<div align="center">
 
-`DISCIPLINA`
+### `Análise e Desenvolvimento de Sistemas` 
 
-`SEMESTRE`
+### `Projeto: Desenvolvimento de uma Aplicação Interativa - `
 
-O objetivo principal da aplicação é melhorar a produtividade e eficiência dos profissionais autônomos e empresas que prestam serviços baseados em agendamento. Reduzir o desperdício de tempo em tarefas que podem ser automatizadas por meio da integração tecnológica, permitindo que os profissionais se concentrem em atividades estratégicas e de gerenciamento de negócio. 
+### `Segundo Semestre - Turma 04 - 2023/2`
+</div>
+
+
+
+O objetivo principal é desenvolver uma aplicação que ajude a melhorar a produtividade e eficiência dos profissionais autônomos e empresas que prestam serviços baseados em agendamento. Reduzir o desperdício de tempo em tarefas que podem ser automatizadas por meio da integração tecnológica, permitindo que os profissionais se concentrem em atividades estratégicas e de gerenciamento de negócio. 
 
 Oferecer uma experiência profissional satisfatória desde o primeiro contato com o cliente, garantindo disponibilidade nos horários desejados e evitando erros na marcação e com isso reduzir erros humanos nas marcações e nos processos de agendamento, aumentando a precisão e confiabilidade das operações.
 
@@ -25,13 +32,16 @@ Oferecer uma experiência profissional satisfatória desde o primeiro contato co
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação. 
+Link para acessar o Sistema: [AgendaHub](https://agendahub20231119201019.azurewebsites.net)
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
+Basta utilizar as credenciais fornecidas abaixo para acessar o sistema e conseguir testar o fluxo da aplicação.
 
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
+Usuário: 
+    testeGitHub
 
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
+Senha: 
+    123456
+
 
 # Documentação
 

@@ -1,0 +1,112 @@
+﻿@model AGENDAHUB.Models.Servicos
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Editar Serviço";
+}
+<link rel="stylesheet" href="~/css/Serviços.css" asp-append-version="true" />
+<h1 class="text-center">Editar Serviço</h1>
+
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4 text-center">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID_Servico" />
+
+            <div class="form-group">
+                <label asp-for="SelectedProfissionais" class="control-label"><h5>Profissionais</h5></label>
+                <p>Selecione um ou mais profissionais que prestam este serviço</p>
+
+                <select asp-for="SelectedProfissionais" class="form-control" multiple="multiple" id="selectMultiple">
+                    @foreach (var profissional in ViewBag.ProfissionaisList)
+                    {
+                        <option value="@profissional.Value">@profissional.Text</option>
+                    }
+                </select>
+
+                <span asp-validation-for="SelectedProfissionais" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label">Preço</label>
+                <input asp-for="Preco" class="form-control" data-val="false" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TempoDeExecucao" class="control-label"></label>
+                <input asp-for="TempoDeExecucao" class="form-control" />
+                <span asp-validation-for="TempoDeExecucao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Imagem" class="control-label"></label>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 text-center">
+                            @if (ViewBag.HasExistingImage)
+                            {
+                                <div class="cardImagemEdit">
+                                    <div class="card-images">
+                                        <img id="existingImage" src="data:image;base64,@Convert.ToBase64String(Model.Imagem)" alt="Imagem Atual" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+           
+
+
+                <input asp-for="Imagem" type="file" class="form-control" onchange="previewImage(this)" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
+            </div>
+
+            <script>
+                function previewImage(input) {
+                    var existingImage = document.getElementById('existingImage');
+
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            existingImage.src = e.target.result;
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+            <div class="form-group pt-4">
+                <a asp-action="Index" class="btn btn-outline-warning">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-outline-info" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[multiple]').select2();
+        });
+    </script>
+}
+
